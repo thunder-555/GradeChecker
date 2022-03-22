@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Grades</title>
+</head>
+<body>
+	<h3 id = "nameid">Hi, !</h3>
+	<h4 id="marksrecieved">You have recieved:</h4>
+
+	<br>
+	<p  id="button">The Grade shown here</p>
+	<button style="button" onclick="func1()">Show Grade</button>
+</body>
+<script type="text/javascript">
+	
+	var name = window.prompt("Enter your name: ");
+	var grade = window.prompt("Enter your marks: ");
+	function func1() {
+		
+		if (grade >= 90) {
+			document.getElementById("button").innerHTML = ("Your Grade: A (Keep up the good work! Celebrate!)");
+		} else if (grade >= 80 && grade <= 90) {
+			document.getElementById('button').innerHTML = ("Your Grade: B (Try Improving!)");
+		} else if (grade >= 70 && grade <= 80) {
+			document.getElementById('button').innerHTML = ("Your Grade: C (Work harder!)");
+		} else {
+			document.getElementById('button').innerHTML = ("You have failed! Improve!");
+		}
+	}
+	document.getElementById("marksrecieved").innerHTML = ("You have recieved: " + grade + " Marks");
+	document.getElementById("nameid").innerHTML = ("Hi, " + name + "!");
+</script>
+
+</html>
