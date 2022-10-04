@@ -9,28 +9,67 @@
 	<h3 id = "nameid">Hi, !</h3>
 	<h4 id="marksrecieved">You have recieved:</h4>
 
+    <h4 id="engMarks">You have recieved the percentage in English:</h4> 
+    <h4 id="scimarks">You have recieved the percentage in Science:</h4> 
+    <h4 id="sanmarks">You have recieved the percentage in Sanskrit:</h4> 
+    <h4 id="sstmarks">You have recieved the percentage in Social Studies:</h4> 
+    <h4 id="hinmarks">You have recieved the percentage in Hindi:</h4> 
+    <h4 id="mathmarks">You have recieved the percentage in Maths:</h4> 
+    
 	<br>
-	<p  id="button">The Grade shown here</p>
-	<button style="button" onclick="func1()">Show Grade</button>
+	<p  id="button">The TOTAL percentage shown here</p>
+	<button style="button" onclick="func1()">Show Percentage!</button>
 </body>
 <script type="text/javascript">
 	
 	var name = window.prompt("Enter your name: ");
-	var grade = window.prompt("Enter your marks: ");
-	function func1() {
-		
-		if (grade >= 90) {
-			document.getElementById("button").innerHTML = ("Your Grade: A (Keep up the good work! Celebrate!)");
-		} else if (grade >= 80 && grade <= 90) {
-			document.getElementById('button').innerHTML = ("Your Grade: B (Try Improving!)");
-		} else if (grade >= 70 && grade <= 80) {
-			document.getElementById('button').innerHTML = ("Your Grade: C (Work harder!)");
-		} else {
-			document.getElementById('button').innerHTML = ("You have failed! Improve!");
-		}
-	}
-	document.getElementById("marksrecieved").innerHTML = ("You have recieved: " + grade + " Marks");
+
+	var grade1 = window.prompt("Enter English Marks:");
+    var grade2 = window.prompt("Enter Science Marks:");
+    var grade3 = window.prompt("Enter Sanskrit Marks:");
+    var grade4 = window.prompt("Enter Social Science Marks:");
+    var grade5 = window.prompt("Enter Hindi Marks:");
+    var grade6 = window.prompt("Enter Maths Marks:");
+
+    var engGrade = parseInt(grade1)
+    var sciGrade = parseInt(grade2)
+    var sanGrade = parseInt(grade3)
+    var sstGrade = parseInt(grade4)
+    var hinGrade = parseInt(grade5)
+    var mathGrade = parseInt(grade6)
+
+    var engGradeper = parseFloat(grade1)
+    var sciGradeper = parseFloat(grade2)
+    var sanGradeper = parseFloat(grade3)
+    var sstGradeper = parseFloat(grade4)
+    var hinGradeper = parseFloat(grade5)
+    var mathGradeper = parseFloat(grade6)
+
+    var grade =  engGrade + sciGrade + sanGrade + sstGrade + hinGrade + mathGrade;
+
+    var engPercentGrade = (engGrade/60) * 100;  
+    var sciPercentGrade = (sciGrade/60) * 100;  
+    var sansPercentGrade = (sanGrade/60) * 100;  
+    var sstPercentGrade = (sstGrade/60) * 100;  
+    var hinPercentGrade = (hinGrade/60) * 100;  
+    var mathPercentGrade = (mathGrade/60) * 100;  
+	
+    document.getElementById("engMarks").innerHTML = ("You have recieved the percentage in English: " + engPercentGrade);
+    document.getElementById("scimarks").innerHTML = ("You have recieved the percentage in Science: " + sciPercentGrade);
+    document.getElementById("sanmarks").innerHTML = ("You have recieved the percentage in Sanskrit: " + sansPercentGrade);
+    document.getElementById("sstmarks").innerHTML = ("You have recieved the percentage in Social Science: " + sstPercentGrade);
+    document.getElementById("hinmarks").innerHTML = ("You have recieved the percentage in Hindi: " + hinPercentGrade);
+    document.getElementById("mathmarks").innerHTML = ("You have recieved the percentage in Maths: " +mathPercentGrade);
+
+    var totalpercentage = (grade/360) * 100
+
+	document.getElementById("marksrecieved").innerHTML = ("You have recieved: " + grade + " Marks out of 360");
 	document.getElementById("nameid").innerHTML = ("Hi, " + name + "!");
+
+    function func1() {
+		document.getElementById("button").innerHTML = totalpercentage + "%";
+	}
+
 </script>
 
 </html>
