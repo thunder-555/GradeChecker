@@ -24,42 +24,36 @@
 	
 	var name = window.prompt("Enter your name: ");
 
-	var grade1 = window.prompt("Enter English Marks:");
-    var grade2 = window.prompt("Enter Science Marks:");
-    var grade3 = window.prompt("Enter Sanskrit Marks:");
-    var grade4 = window.prompt("Enter Social Science Marks:");
-    var grade5 = window.prompt("Enter Hindi Marks:");
-    var grade6 = window.prompt("Enter Maths Marks:");
+	var grade1 = parseFloat(window.prompt("Enter English Marks:"));
+    var grade2 = parseFloat(window.prompt("Enter Science Marks:"));
+    var grade3 = parseFloat(window.prompt("Enter Sanskrit Marks:"));
+    var grade4 = parseFloat(window.prompt("Enter Social Science Marks:"));
+    var grade5 = parseFloat(window.prompt("Enter Hindi Marks:"));
+    var grade6 = parseFloat(window.prompt("Enter Maths Marks:"));
 
-    var engGrade = parseInt(grade1)
-    var sciGrade = parseInt(grade2)
-    var sanGrade = parseInt(grade3)
-    var sstGrade = parseInt(grade4)
-    var hinGrade = parseInt(grade5)
-    var mathGrade = parseInt(grade6)
+    var engGrade = parseFloat(grade1);
+    var sciGrade = parseFloat(grade2);
+    var sanGrade = parseFloat(grade3);
+    var sstGrade = parseFloat(grade4);
+    var hinGrade = parseFloat(grade5);
+    var mathGrade = parseFloat(grade6);
 
-    var engGradeper = parseFloat(grade1)
-    var sciGradeper = parseFloat(grade2)
-    var sanGradeper = parseFloat(grade3)
-    var sstGradeper = parseFloat(grade4)
-    var hinGradeper = parseFloat(grade5)
-    var mathGradeper = parseFloat(grade6)
 
-    var grade =  engGrade + sciGrade + sanGrade + sstGrade + hinGrade + mathGrade;
-
-    var engPercentGrade = (engGrade/60) * 100;  
-    var sciPercentGrade = (sciGrade/60) * 100;  
-    var sansPercentGrade = (sanGrade/60) * 100;  
-    var sstPercentGrade = (sstGrade/60) * 100;  
-    var hinPercentGrade = (hinGrade/60) * 100;  
-    var mathPercentGrade = (mathGrade/60) * 100;  
+    var grade =  (engGrade + sciGrade + sanGrade + sstGrade + hinGrade + mathGrade).toFixed(2);
+     
+    var engPercentGrade = ((engGrade/60) * 100).toFixed(2);  
+    var sciPercentGrade = ((sciGrade/60) * 100).toFixed(2);  
+    var sansPercentGrade = ((sanGrade/60) * 100).toFixed(2);  
+    var sstPercentGrade = ((sstGrade/60) * 100).toFixed(2);  
+    var hinPercentGrade = ((hinGrade/60) * 100).toFixed(2);  
+    var mathPercentGrade = ((mathGrade/60) * 100).toFixed(2);  
 	
-    document.getElementById("engMarks").innerHTML = ("You have recieved the percentage in English: " + engPercentGrade);
-    document.getElementById("scimarks").innerHTML = ("You have recieved the percentage in Science: " + sciPercentGrade);
-    document.getElementById("sanmarks").innerHTML = ("You have recieved the percentage in Sanskrit: " + sansPercentGrade);
-    document.getElementById("sstmarks").innerHTML = ("You have recieved the percentage in Social Science: " + sstPercentGrade);
-    document.getElementById("hinmarks").innerHTML = ("You have recieved the percentage in Hindi: " + hinPercentGrade);
-    document.getElementById("mathmarks").innerHTML = ("You have recieved the percentage in Maths: " +mathPercentGrade);
+    document.getElementById("engMarks").innerHTML = ("You have recieved the percentage in English: " + engPercentGrade + "%");
+    document.getElementById("scimarks").innerHTML = ("You have recieved the percentage in Science: " + sciPercentGrade + "%");
+    document.getElementById("sanmarks").innerHTML = ("You have recieved the percentage in Sanskrit: " + sansPercentGrade + "%");
+    document.getElementById("sstmarks").innerHTML = ("You have recieved the percentage in Social Science: " + sstPercentGrade + "%");
+    document.getElementById("hinmarks").innerHTML = ("You have recieved the percentage in Hindi: " + hinPercentGrade + "%");
+    document.getElementById("mathmarks").innerHTML = ("You have recieved the percentage in Maths: " +mathPercentGrade + "%");
 
     var totalpercentage = (grade/360) * 100
 
