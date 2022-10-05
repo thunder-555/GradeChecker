@@ -3,12 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	<title>Grades</title>
 </head>
-<body>
-	<h3 id = "nameid">Hi, !</h3>
+<style>
+    #stylebody {    
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: cadetblue;
+        
+    }
+</style>
+
+<body id="stylebody">
+	<h3 id = "nameid" style="font-size: xx-large;">Hi, !</h3>
 	<h4 id="marksrecieved">You have recieved:</h4>
 
+    <br>
     <h4 id="engMarks">You have recieved the percentage in English:</h4> 
     <h4 id="scimarks">You have recieved the percentage in Science:</h4> 
     <h4 id="sanmarks">You have recieved the percentage in Sanskrit:</h4> 
@@ -17,7 +28,7 @@
     <h4 id="mathmarks">You have recieved the percentage in Maths:</h4> 
     
 	<br>
-	<p  id="button">The TOTAL percentage shown here</p>
+	<p  id="button" style="font-size: xx-large;">The TOTAL percentage shown here</p>
 	<button style="button" onclick="func1()">Show Percentage!</button>
 </body>
 <script type="text/javascript">
@@ -55,7 +66,7 @@
     document.getElementById("hinmarks").innerHTML = ("You have recieved the percentage in Hindi: " + hinPercentGrade + "%");
     document.getElementById("mathmarks").innerHTML = ("You have recieved the percentage in Maths: " +mathPercentGrade + "%");
 
-    var totalpercentage = (grade/360) * 100
+    var totalpercentage = ((grade/360) * 100).toFixed(2);
 
 	document.getElementById("marksrecieved").innerHTML = ("You have recieved: " + grade + " Marks out of 360");
 	document.getElementById("nameid").innerHTML = ("Hi, " + name + "!");
