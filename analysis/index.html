@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+<!---------------------------------------------------
+
+    TODO LIST 19.03.2023:
+        1. Add Alert for all subjects in all exams.
+
+----------------------------------------------------->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set height of body and the document to 100% */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Style tab links */
+        .tablink {
+            background-color: lightblue;
+            color: black;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 20%;
+        }
+
+        .tablink:hover {
+            background-color: rgb(125, 188, 209);
+        }
+
+        /* Style the tab content (and add height:100% for full page content) */
+        .tabcontent {
+            color: black;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+        #Home {
+            background-color: white;
+        }
+
+        #News {
+            background-color: white;
+        }
+
+        #Contact {
+            background-color: white;
+        }
+
+        #About {
+            background-color: white
+        }
+
+        #chartsOfTheYear {
+            position: absolute;
+        }
+
+
+
+        #curve_chart {
+            margin-left: 800PX;
+            position: absolute;
+        }
+
+
+
+        p {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: larger;
+        }
+
+        h3 {
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="headerTabs">
+        <button class="tablink" onclick="openPage('preMidTerm', this, 'white')" id="defaultOpen">Pre Mid Term</button>
+        <button class="tablink" onclick="openPage('postMidTerm', this, 'white')">Mid Term</button>
+        <button class="tablink" onclick="openPage('midTerm', this, 'white')">Post Mid Term</button>
+        <button class="tablink" onclick="openPage('finalExam', this, 'white')">Final</button>
+        <button class="tablink" onclick="openPage('analyticsFull', this, 'white')">ANALYTICS</button>
+    </div>
+    <!----------------------------------------------------------------------------->
+
+    <div id="preMidTerm" class="tabcontent">
+        <h3>Pre Mid Term Exam</h3>
+        <p>Enter Marks out of 30!</p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your English Marks:</p>
+        <input type="number" id="engPreInput">
+        <button id="engPreBtn" onclick="engPre()">Submit</button>
+        <p id="engPreMarks">Marks: </p>
+        <p id="engPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Hindi Marks:</p>
+        <input type="number" id="hinPreInput">
+        <button id="hinPreBtn" onclick="hinPre()">Submit</button>
+        <p id="hinPreMarks">Marks: </p>
+        <p id="hinPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Sanskrit Marks:</p>
+        <input type="number" id="sanPreInput">
+        <button id="sanPreBtn" onclick="sanPre()">Submit</button>
+        <p id="sanPreMarks">Marks: </p>
+        <p id="sanPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Maths Marks:</p>
+        <input type="number" id="mathsPreInput">
+        <button id="mathsPreBtn" onclick="mathsPre()">Submit</button>
+        <p id="mathsPreMarks">Marks: </p>
+        <p id="mathsPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Science Marks:</p>
+        <input type="number" id="sciPreInput">
+        <button id="sciPreBtn" onclick="sciPre()">Submit</button>
+        <p id="sciPreMarks">Marks: </p>
+        <p id="sciPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Social Science Marks:</p>
+        <input type="number" id="sstPreInput">
+        <button id="sstPreBtn" onclick="sstPre()">Submit</button>
+        <p id="sstPreMarks">Marks: </p>
+        <p id="sstPrePercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+
+        <button onclick="preTotalSubmitFunc()">SUBMIT</button>
+        <h1 id="preTotal">TOTAL MARKS: </h1>
+        <button id="preTotalBtn" onclick="preTotal()">Show Total Marks</button>
+        <h1 id="prePercentage">TOTAL PERCENTAGE</h1>
+        <button id="prePercentageBtn" onclick="prePercentage()">Show Total Percentage</button><br><br><br>
+
+        <!-------------
+        <button id="preSubjectChart" onclick="preSubjectChart()">Generate Subject Chart</button>
+        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript"></script>
+-------------->
+    </div>
+
+    <!----------------------------------------------------------------------------->
+
+    <div id="midTerm" class="tabcontent">
+        <h3>Post Mid Term Exam</h3>
+        <p>Enter Marks out of 60!</p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your English Marks:</p>
+        <input type="number" id="engPostInput">
+        <button id="engPostBtn" onclick="engPost()">Submit</button>
+        <p id="engPostMarks">Marks: </p>
+        <p id="engPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Hindi Marks:</p>
+        <input type="number" id="hinPostInput">
+        <button id="hinPostBtn" onclick="hinPost()">Submit</button>
+        <p id="hinPostMarks">Marks: </p>
+        <p id="hinPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Sanskrit Marks:</p>
+        <input type="number" id="sanPostInput">
+        <button id="sanPostBtn" onclick="sanPost()">Submit</button>
+        <p id="sanPostMarks">Marks: </p>
+        <p id="sanPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Maths Marks:</p>
+        <input type="number" id="mathsPostInput">
+        <button id="mathsPostBtn" onclick="mathsPost()">Submit</button>
+        <p id="mathsPostMarks">Marks: </p>
+        <p id="mathsPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Science Marks:</p>
+        <input type="number" id="sciPostInput">
+        <button id="sciPostBtn" onclick="sciPost()">Submit</button>
+        <p id="sciPostMarks">Marks: </p>
+        <p id="sciPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Social Science Marks:</p>
+        <input type="number" id="sstPostInput">
+        <button id="sstPostBtn" onclick="sstPost()">Submit</button>
+        <p id="sstPostMarks">Marks: </p>
+        <p id="sstPostPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+
+        <button onclick="PostTotalSubmitFunc()">SUBMIT</button>
+        <h1 id="PostTotal">TOTAL MARKS: </h1>
+        <button id="PostTotalBtn" onclick="PostTotal()">Show Total Marks</button>
+        <h1 id="PostPercentage">TOTAL PERCENTAGE</h1>
+        <button id="PostPercentageBtn" onclick="PostPercentage()">Show Total Percentage</button><br><br><br>
+
+    </div>
+
+    <!----------------------------------------------------------------------------->
+
+    <div id="postMidTerm" class="tabcontent">
+        <h3>Mid Term Exam</h3>
+        <p>Enter Marks out of 60!</p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your English Marks:</p>
+        <input type="number" id="engMidInput">
+        <button id="engMidBtn" onclick="engMid()">Submit</button>
+        <p id="engMidMarks">Marks: </p>
+        <p id="engMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Hindi Marks:</p>
+        <input type="number" id="hinMidInput">
+        <button id="hinMidBtn" onclick="hinMid()">Submit</button>
+        <p id="hinMidMarks">Marks: </p>
+        <p id="hinMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Sanskrit Marks:</p>
+        <input type="number" id="sanMidInput">
+        <button id="sanMidBtn" onclick="sanMid()">Submit</button>
+        <p id="sanMidMarks">Marks: </p>
+        <p id="sanMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Maths Marks:</p>
+        <input type="number" id="mathsMidInput">
+        <button id="mathsMidBtn" onclick="mathsMid()">Submit</button>
+        <p id="mathsMidMarks">Marks: </p>
+        <p id="mathsMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Science Marks:</p>
+        <input type="number" id="sciMidInput">
+        <button id="sciMidBtn" onclick="sciMid()">Submit</button>
+        <p id="sciMidMarks">Marks: </p>
+        <p id="sciMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Social Science Marks:</p>
+        <input type="number" id="sstMidInput">
+        <button id="sstMidBtn" onclick="sstMid()">Submit</button>
+        <p id="sstMidMarks">Marks: </p>
+        <p id="sstMidPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+
+        <button onclick="MidTotalSubmitFunc()">SUBMIT</button>
+        <h1 id="MidTotal">TOTAL MARKS: </h1>
+        <button id="MidTotalBtn" onclick="MidTotal()">Show Total Marks</button>
+        <h1 id="MidPercentage">TOTAL PERCENTAGE</h1>
+        <button id="MidPercentageBtn" onclick="MidPercentage()">Show Total Percentage</button><br><br><br>
+
+
+    </div>
+
+    <!----------------------------------------------------------------------------->
+
+    <div id="finalExam" class="tabcontent">
+        <h3>Final Exam</h3>
+        <p>Enter Marks out of 60!</p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your English Marks:</p>
+        <input type="number" id="engFinInput">
+        <button id="engFinBtn" onclick="engFin()">Submit</button>
+        <p id="engFinMarks">Marks: </p>
+        <p id="engFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Hindi Marks:</p>
+        <input type="number" id="hinFinInput">
+        <button id="hinFinBtn" onclick="hinFin()">Submit</button>
+        <p id="hinFinMarks">Marks: </p>
+        <p id="hinFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Sanskrit Marks:</p>
+        <input type="number" id="sanFinInput">
+        <button id="sanFinBtn" onclick="sanFin()">Submit</button>
+        <p id="sanFinMarks">Marks: </p>
+        <p id="sanFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Maths Marks:</p>
+        <input type="number" id="mathsFinInput">
+        <button id="mathsFinBtn" onclick="mathsFin()">Submit</button>
+        <p id="mathsFinMarks">Marks: </p>
+        <p id="mathsFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Science Marks:</p>
+        <input type="number" id="sciFinInput">
+        <button id="sciFinBtn" onclick="sciFin()">Submit</button>
+        <p id="sciFinMarks">Marks: </p>
+        <p id="sciFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+        <p>Enter your Social Science Marks:</p>
+        <input type="number" id="sstFinInput">
+        <button id="sstFinBtn" onclick="sstFin()">Submit</button>
+        <p id="sstFinMarks">Marks: </p>
+        <p id="sstFinPercentage">Percentage: </p>
+        <hr>
+        <!----------------------------------------------------------->
+
+        <button onclick="FinTotalSubmitFunc()">SUBMIT</button>
+        <h1 id="FinTotal">TOTAL MARKS: </h1>
+        <button id="FinTotalBtn" onclick="FinTotal()">Show Total Marks</button>
+        <h1 id="FinPercentage">TOTAL PERCENTAGE</h1>
+        <button id="FinPercentageBtn" onclick="FinPercentage()">Show Total Percentage</button><br><br><br>
+
+    </div>
+
+    <!----------------------------------------------------------------------------->
+    <div id="analyticsFull" class="tabcontent">
+        <div id="googleChartsScriptDiv">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript"></script>
+        </div>
+
+        <h3>ANALYTICS</h3>
+        <p>For Pre Mid Term the value is getting multiplied by 2 to generate the chart! Don't Worry!</p>
+        <hr>
+        <div id="curve_chart" style="width: 900px; height: 500px;"></div>
+
+        <div id="chartsOfTheYear">
+            <div id="engYearChartsDiv">
+                <h3>English Year Wise Analysis:</h3>
+                <button onclick="engYearChart()">Generate</button>
+            </div>
+
+            <div id="hinYearChartsDiv">
+                <h3>Hindi Year Wise Analysis:</h3>
+                <button onclick="hinYearChart()">Generate</button>
+            </div>
+
+            <div id="sanYearChartsDiv">
+                <h3>Sanskrit Year Wise Analysis:</h3>
+                <button onclick="sanYearChart()">Generate</button>
+            </div>
+
+            <div id="mathsYearChartsDiv">
+                <h3>Maths Year Wise Analysis:</h3>
+                <button onclick="mathsYearChart()">Generate</button>
+
+            </div>
+
+            <div id="sciYearChartsDiv">
+                <h3>Science Year Wise Analysis:</h3>
+                <button onclick="sciYearChart()">Generate</button>
+
+            </div>
+
+            <div id="sstYearChartsDiv">
+                <h3>Social Science Year Wise Analysis:</h3>
+                <button onclick="sstYearChart()">Generate</button>
+            </div>
+
+            <div id="sstYearChartsDiv">
+                <h3>Exam Wise Analysis:</h3>
+                <button onclick="examYearChart()">Generate</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!----------------------------------------------------------------------------->
+</body>
+
+<script>
+    ////////////////////////  PRE  MID TERM  ///////////////////////////
+    function engPre() {
+        var engPreMarksChecker = parseFloat(document.getElementById("engPreInput").value);
+        if (engPreMarksChecker > 30) {
+            alert("INVALID MARKS!");
+
+        } else {
+            var engPreMarks = parseFloat(document.getElementById("engPreInput").value);
+            document.getElementById("engPreMarks").innerHTML = "Marks: " + engPreMarks + " Marks";
+
+            var engPrePercentage = [(engPreMarks / 30) * 100];
+            document.getElementById("engPrePercentage").innerHTML = "Percentage: " + engPrePercentage + "%"
+        }
+    }
+
+    function hinPre() {
+
+        var hinPreMarks = parseFloat(document.getElementById("hinPreInput").value);
+        document.getElementById("hinPreMarks").innerHTML = "Marks: " + hinPreMarks + " Marks";
+
+        var hinPrePercentage = [(hinPreMarks / 30) * 100];
+        document.getElementById("hinPrePercentage").innerHTML = "Percentage: " + hinPrePercentage + "%"
+    }
+
+    function sanPre() {
+        var sanPreMarks = parseFloat(document.getElementById("sanPreInput").value);
+        document.getElementById("sanPreMarks").innerHTML = "Marks: " + sanPreMarks + " Marks";
+
+        var sanPrePercentage = [(sanPreMarks / 30) * 100];
+        document.getElementById("sanPrePercentage").innerHTML = "Percentage: " + sanPrePercentage + "%"
+    }
+
+    function mathsPre() {
+        var mathsPreMarks = parseFloat(document.getElementById("mathsPreInput").value);
+        document.getElementById("mathsPreMarks").innerHTML = "Marks: " + mathsPreMarks + " Marks";
+
+        var mathsPrePercentage = [(mathsPreMarks / 30) * 100];
+        document.getElementById("mathsPrePercentage").innerHTML = "Percentage: " + mathsPrePercentage + "%"
+    }
+
+    function sciPre() {
+        var sciPreMarks = parseFloat(document.getElementById("sciPreInput").value);
+        document.getElementById("sciPreMarks").innerHTML = "Marks: " + sciPreMarks + " Marks";
+
+        var sciPrePercentage = [(sciPreMarks / 30) * 100];
+        document.getElementById("sciPrePercentage").innerHTML = "Percentage: " + sciPrePercentage + "%"
+    }
+
+    function sstPre() {
+        var sstPreMarks = parseFloat(document.getElementById("sstPreInput").value);
+        document.getElementById("sstPreMarks").innerHTML = "Marks: " + sstPreMarks + " Marks";
+
+        var sstPrePercentage = [(sstPreMarks / 30) * 100];
+        document.getElementById("sstPrePercentage").innerHTML = "Percentage: " + sstPrePercentage + "%"
+    }
+
+    function preTotal() {
+        var engPreMarksTotal = parseFloat(document.getElementById("engPreInput").value);
+        var hinPreMarksTotal = parseFloat(document.getElementById("hinPreInput").value);
+        var sanPreMarksTotal = parseFloat(document.getElementById("sanPreInput").value);
+        var mathsPreMarksTotal = parseFloat(document.getElementById("mathsPreInput").value);
+        var sciPreMarksTotal = parseFloat(document.getElementById("sciPreInput").value);
+        var sstPreMarksTotal = parseFloat(document.getElementById("sstPreInput").value);
+        var preMidTotalMarks = [engPreMarksTotal + hinPreMarksTotal + sanPreMarksTotal + sciPreMarksTotal + mathsPreMarksTotal + sstPreMarksTotal];
+        document.getElementById("preTotal").innerHTML = "TOTAL MARKS: " + preMidTotalMarks + "/180 Marks";
+
+    }
+    function prePercentage() {
+        var engPrePercentTotal = parseFloat(document.getElementById("engPreInput").value);
+        var hinPrePercentTotal = parseFloat(document.getElementById("hinPreInput").value);
+        var sanPrePercentTotal = parseFloat(document.getElementById("sanPreInput").value);
+        var mathsPrePercentTotal = parseFloat(document.getElementById("mathsPreInput").value);
+        var sciPrePercentTotal = parseFloat(document.getElementById("sciPreInput").value);
+        var sstPrePercentTotal = parseFloat(document.getElementById("sstPreInput").value);
+        var preMidPercentMarks = [engPrePercentTotal + hinPrePercentTotal + sanPrePercentTotal + sciPrePercentTotal + mathsPrePercentTotal + sstPrePercentTotal];
+        var preMidTotalPercentage = [(preMidPercentMarks / 180) * 100];
+        document.getElementById("prePercentage").innerHTML = "TOTAL PERCENTAGE: " + preMidTotalPercentage + "%";
+
+    }
+
+
+    //////////////////////// MID TERM  ///////////////////////////
+
+    function engMid() {
+        var engMidMarks = parseFloat(document.getElementById("engMidInput").value);
+        document.getElementById("engMidMarks").innerHTML = "Marks: " + engMidMarks + " Marks";
+
+        var engMidPercentage = [(engMidMarks / 60) * 100];
+        document.getElementById("engMidPercentage").innerHTML = "Percentage: " + engMidPercentage + "%"
+    }
+
+    function hinMid() {
+        var hinMidMarks = parseFloat(document.getElementById("hinMidInput").value);
+        document.getElementById("hinMidMarks").innerHTML = "Marks: " + hinMidMarks + " Marks";
+
+        var hinMidPercentage = [(hinMidMarks / 60) * 100];
+        document.getElementById("hinMidPercentage").innerHTML = "Percentage: " + hinMidPercentage + "%"
+    }
+
+    function sanMid() {
+        var sanMidMarks = parseFloat(document.getElementById("sanMidInput").value);
+        document.getElementById("sanMidMarks").innerHTML = "Marks: " + sanMidMarks + " Marks";
+
+        var sanMidPercentage = [(sanMidMarks / 60) * 100];
+        document.getElementById("sanMidPercentage").innerHTML = "Percentage: " + sanMidPercentage + "%"
+    }
+
+    function mathsMid() {
+        var mathsMidMarks = parseFloat(document.getElementById("mathsMidInput").value);
+        document.getElementById("mathsMidMarks").innerHTML = "Marks: " + mathsMidMarks + " Marks";
+
+        var mathsMidPercentage = [(mathsMidMarks / 60) * 100];
+        document.getElementById("mathsMidPercentage").innerHTML = "Percentage: " + mathsMidPercentage + "%"
+    }
+
+    function sciMid() {
+        var sciMidMarks = parseFloat(document.getElementById("sciMidInput").value);
+        document.getElementById("sciMidMarks").innerHTML = "Marks: " + sciMidMarks + " Marks";
+
+        var sciMidPercentage = [(sciMidMarks / 60) * 100];
+        document.getElementById("sciMidPercentage").innerHTML = "Percentage: " + sciMidPercentage + "%"
+    }
+
+    function sstMid() {
+        var sstMidMarks = parseFloat(document.getElementById("sstMidInput").value);
+        document.getElementById("sstMidMarks").innerHTML = "Marks: " + sstMidMarks + " Marks";
+
+        var sstMidPercentage = [(sstMidMarks / 60) * 100];
+        document.getElementById("sstMidPercentage").innerHTML = "Percentage: " + sstMidPercentage + "%"
+    }
+
+    function MidTotal() {
+        var engMidMarksTotal = parseFloat(document.getElementById("engMidInput").value);
+        var hinMidMarksTotal = parseFloat(document.getElementById("hinMidInput").value);
+        var sanMidMarksTotal = parseFloat(document.getElementById("sanMidInput").value);
+        var mathsMidMarksTotal = parseFloat(document.getElementById("mathsMidInput").value);
+        var sciMidMarksTotal = parseFloat(document.getElementById("sciMidInput").value);
+        var sstMidMarksTotal = parseFloat(document.getElementById("sstMidInput").value);
+        var MidMidTotalMarks = [engMidMarksTotal + hinMidMarksTotal + sanMidMarksTotal + sciMidMarksTotal + mathsMidMarksTotal + sstMidMarksTotal];
+        document.getElementById("MidTotal").innerHTML = "TOTAL MARKS: " + MidMidTotalMarks + "/360 Marks";
+
+    }
+    function MidPercentage() {
+        var engMidPercentTotal = parseFloat(document.getElementById("engMidInput").value);
+        var hinMidPercentTotal = parseFloat(document.getElementById("hinMidInput").value);
+        var sanMidPercentTotal = parseFloat(document.getElementById("sanMidInput").value);
+        var mathsMidPercentTotal = parseFloat(document.getElementById("mathsMidInput").value);
+        var sciMidPercentTotal = parseFloat(document.getElementById("sciMidInput").value);
+        var sstMidPercentTotal = parseFloat(document.getElementById("sstMidInput").value);
+        var MidMidPercentMarks = [engMidPercentTotal + hinMidPercentTotal + sanMidPercentTotal + sciMidPercentTotal + mathsMidPercentTotal + sstMidPercentTotal];
+        var MidMidTotalPercentage = [(MidMidPercentMarks / 360) * 100];
+        document.getElementById("MidPercentage").innerHTML = "TOTAL PERCENTAGE: " + MidMidTotalPercentage + "%";
+
+    }
+
+    ///////////////////////////// POST MID TERM EXAM //////////////////////////////////////////
+    function engPost() {
+        var engPostMarks = parseFloat(document.getElementById("engPostInput").value);
+        document.getElementById("engPostMarks").innerHTML = "Marks: " + engPostMarks + " Marks";
+
+        var engPostPercentage = [(engPostMarks / 60) * 100];
+        document.getElementById("engPostPercentage").innerHTML = "Percentage: " + engPostPercentage + "%"
+    }
+
+    function hinPost() {
+        var hinPostMarks = parseFloat(document.getElementById("hinPostInput").value);
+        document.getElementById("hinPostMarks").innerHTML = "Marks: " + hinPostMarks + " Marks";
+
+        var hinPostPercentage = [(hinPostMarks / 60) * 100];
+        document.getElementById("hinPostPercentage").innerHTML = "Percentage: " + hinPostPercentage + "%"
+    }
+
+    function sanPost() {
+        var sanPostMarks = parseFloat(document.getElementById("sanPostInput").value);
+        document.getElementById("sanPostMarks").innerHTML = "Marks: " + sanPostMarks + " Marks";
+
+        var sanPostPercentage = [(sanPostMarks / 60) * 100];
+        document.getElementById("sanPostPercentage").innerHTML = "Percentage: " + sanPostPercentage + "%"
+    }
+
+    function mathsPost() {
+        var mathsPostMarks = parseFloat(document.getElementById("mathsPostInput").value);
+        document.getElementById("mathsPostMarks").innerHTML = "Marks: " + mathsPostMarks + " Marks";
+
+        var mathsPostPercentage = [(mathsPostMarks / 60) * 100];
+        document.getElementById("mathsPostPercentage").innerHTML = "Percentage: " + mathsPostPercentage + "%"
+    }
+
+    function sciPost() {
+        var sciPostMarks = parseFloat(document.getElementById("sciPostInput").value);
+        document.getElementById("sciPostMarks").innerHTML = "Marks: " + sciPostMarks + " Marks";
+
+        var sciPostPercentage = [(sciPostMarks / 60) * 100];
+        document.getElementById("sciPostPercentage").innerHTML = "Percentage: " + sciPostPercentage + "%"
+    }
+
+    function sstPost() {
+        var sstPostMarks = parseFloat(document.getElementById("sstPostInput").value);
+        document.getElementById("sstPostMarks").innerHTML = "Marks: " + sstPostMarks + " Marks";
+
+        var sstPostPercentage = [(sstPostMarks / 60) * 100];
+        document.getElementById("sstPostPercentage").innerHTML = "Percentage: " + sstPostPercentage + "%"
+    }
+
+    function PostTotal() {
+        var engPostMarksTotal = parseFloat(document.getElementById("engPostInput").value);
+        var hinPostMarksTotal = parseFloat(document.getElementById("hinPostInput").value);
+        var sanPostMarksTotal = parseFloat(document.getElementById("sanPostInput").value);
+        var mathsPostMarksTotal = parseFloat(document.getElementById("mathsPostInput").value);
+        var sciPostMarksTotal = parseFloat(document.getElementById("sciPostInput").value);
+        var sstPostMarksTotal = parseFloat(document.getElementById("sstPostInput").value);
+        var PostPostTotalMarks = [engPostMarksTotal + hinPostMarksTotal + sanPostMarksTotal + sciPostMarksTotal + mathsPostMarksTotal + sstPostMarksTotal];
+        document.getElementById("PostTotal").innerHTML = "TOTAL MARKS: " + PostPostTotalMarks + "/360 Marks";
+
+    }
+    function PostPercentage() {
+        var engPostPercentTotal = parseFloat(document.getElementById("engPostInput").value);
+        var hinPostPercentTotal = parseFloat(document.getElementById("hinPostInput").value);
+        var sanPostPercentTotal = parseFloat(document.getElementById("sanPostInput").value);
+        var mathsPostPercentTotal = parseFloat(document.getElementById("mathsPostInput").value);
+        var sciPostPercentTotal = parseFloat(document.getElementById("sciPostInput").value);
+        var sstPostPercentTotal = parseFloat(document.getElementById("sstPostInput").value);
+        var PostPostPercentMarks = [engPostPercentTotal + hinPostPercentTotal + sanPostPercentTotal + sciPostPercentTotal + mathsPostPercentTotal + sstPostPercentTotal];
+        var PostPostTotalPercentage = [(PostPostPercentMarks / 360) * 100];
+        document.getElementById("PostPercentage").innerHTML = "TOTAL PERCENTAGE: " + PostPostTotalPercentage + "%";
+
+    }
+
+    //////////////////////////////////// FINAL EXAMS //////////////////////////////////////////////
+
+    function engFin() {
+        var engFinMarks = parseFloat(document.getElementById("engFinInput").value);
+        document.getElementById("engFinMarks").innerHTML = "Marks: " + engFinMarks + " Marks";
+
+        var engFinPercentage = [(engFinMarks / 60) * 100];
+        document.getElementById("engFinPercentage").innerHTML = "Percentage: " + engFinPercentage + "%"
+    }
+
+    function hinFin() {
+        var hinFinMarks = parseFloat(document.getElementById("hinFinInput").value);
+        document.getElementById("hinFinMarks").innerHTML = "Marks: " + hinFinMarks + " Marks";
+
+        var hinFinPercentage = [(hinFinMarks / 60) * 100];
+        document.getElementById("hinFinPercentage").innerHTML = "Percentage: " + hinFinPercentage + "%"
+    }
+
+    function sanFin() {
+        var sanFinMarks = parseFloat(document.getElementById("sanFinInput").value);
+        document.getElementById("sanFinMarks").innerHTML = "Marks: " + sanFinMarks + " Marks";
+
+        var sanFinPercentage = [(sanFinMarks / 60) * 100];
+        document.getElementById("sanFinPercentage").innerHTML = "Percentage: " + sanFinPercentage + "%"
+    }
+
+    function mathsFin() {
+        var mathsFinMarks = parseFloat(document.getElementById("mathsFinInput").value);
+        document.getElementById("mathsFinMarks").innerHTML = "Marks: " + mathsFinMarks + " Marks";
+
+        var mathsFinPercentage = [(mathsFinMarks / 60) * 100];
+        document.getElementById("mathsFinPercentage").innerHTML = "Percentage: " + mathsFinPercentage + "%"
+    }
+
+    function sciFin() {
+        var sciFinMarks = parseFloat(document.getElementById("sciFinInput").value);
+        document.getElementById("sciFinMarks").innerHTML = "Marks: " + sciFinMarks + " Marks";
+
+        var sciFinPercentage = [(sciFinMarks / 60) * 100];
+        document.getElementById("sciFinPercentage").innerHTML = "Percentage: " + sciFinPercentage + "%"
+    }
+
+    function sstFin() {
+        var sstFinMarks = parseFloat(document.getElementById("sstFinInput").value);
+        document.getElementById("sstFinMarks").innerHTML = "Marks: " + sstFinMarks + " Marks";
+
+        var sstFinPercentage = [(sstFinMarks / 60) * 100];
+        document.getElementById("sstFinPercentage").innerHTML = "Percentage: " + sstFinPercentage + "%"
+    }
+
+    function FinTotal() {
+        var engFinMarksTotal = parseFloat(document.getElementById("engFinInput").value);
+        var hinFinMarksTotal = parseFloat(document.getElementById("hinFinInput").value);
+        var sanFinMarksTotal = parseFloat(document.getElementById("sanFinInput").value);
+        var mathsFinMarksTotal = parseFloat(document.getElementById("mathsFinInput").value);
+        var sciFinMarksTotal = parseFloat(document.getElementById("sciFinInput").value);
+        var sstFinMarksTotal = parseFloat(document.getElementById("sstFinInput").value);
+        var FinFinTotalMarks = [engFinMarksTotal + hinFinMarksTotal + sanFinMarksTotal + sciFinMarksTotal + mathsFinMarksTotal + sstFinMarksTotal];
+        document.getElementById("FinTotal").innerHTML = "TOTAL MARKS: " + FinFinTotalMarks + "/360 Marks";
+
+    }
+    function FinPercentage() {
+        var engFinPercentTotal = parseFloat(document.getElementById("engFinInput").value);
+        var hinFinPercentTotal = parseFloat(document.getElementById("hinFinInput").value);
+        var sanFinPercentTotal = parseFloat(document.getElementById("sanFinInput").value);
+        var mathsFinPercentTotal = parseFloat(document.getElementById("mathsFinInput").value);
+        var sciFinPercentTotal = parseFloat(document.getElementById("sciFinInput").value);
+        var sstFinPercentTotal = parseFloat(document.getElementById("sstFinInput").value);
+        var FinFinPercentMarks = [engFinPercentTotal + hinFinPercentTotal + sanFinPercentTotal + sciFinPercentTotal + mathsFinPercentTotal + sstFinPercentTotal];
+        var FinFinTotalPercentage = [(FinFinPercentMarks / 360) * 100];
+        document.getElementById("FinPercentage").innerHTML = "TOTAL PERCENTAGE: " + FinFinTotalPercentage + "%";
+
+    }
+
+    //////////////////////////////////CHARTS FOR FULL YEAR ////////////////////////////////////////
+
+    function engYearChart() {
+        engPreChartMarks = parseFloat(document.getElementById("engPreInput").value);
+        engPreChartMarks = engPreChartMarks * 2;
+        engMidChartMarks = parseFloat(document.getElementById("engMidInput").value);
+
+        engPostChartMarks = parseFloat(document.getElementById("engPostInput").value);
+
+        engFinChartMarks = parseFloat(document.getElementById("engFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', engPreChartMarks],
+                ['Mid Term', engMidChartMarks],
+                ['Post Mid Term', engPostChartMarks],
+                ['Final', engFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'English Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function hinYearChart() {
+
+        hinPreChartMarks = parseFloat(document.getElementById("hinPreInput").value);
+        hinPreChartMarks = hinPreChartMarks * 2;
+        hinMidChartMarks = parseFloat(document.getElementById("hinMidInput").value);
+
+        hinPostChartMarks = parseFloat(document.getElementById("hinPostInput").value);
+
+        hinFinChartMarks = parseFloat(document.getElementById("hinFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', hinPreChartMarks],
+                ['Mid Term', hinMidChartMarks],
+                ['Post Mid Term', hinPostChartMarks],
+                ['Final', hinFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'Hindi Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function sanYearChart() {
+        sanPreChartMarks = parseFloat(document.getElementById("sanPreInput").value);
+        sanPreChartMarks = sanPreChartMarks * 2;
+        sanMidChartMarks = parseFloat(document.getElementById("sanMidInput").value);
+
+        sanPostChartMarks = parseFloat(document.getElementById("sanPostInput").value);
+
+        sanFinChartMarks = parseFloat(document.getElementById("sanFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', sanPreChartMarks],
+                ['Mid Term', sanMidChartMarks],
+                ['Post Mid Term', sanPostChartMarks],
+                ['Final', sanFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'Sanskrit Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function mathsYearChart() {
+        mathsPreChartMarks = parseFloat(document.getElementById("mathsPreInput").value);
+        mathsPreChartMarks = mathsPreChartMarks * 2;
+        mathsMidChartMarks = parseFloat(document.getElementById("mathsMidInput").value);
+
+        mathsPostChartMarks = parseFloat(document.getElementById("mathsPostInput").value);
+
+        mathsFinChartMarks = parseFloat(document.getElementById("mathsFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', mathsPreChartMarks],
+                ['Mid Term', mathsMidChartMarks],
+                ['Post Mid Term', mathsPostChartMarks],
+                ['Final', mathsFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'Maths Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function sciYearChart() {
+        sciPreChartMarks = parseFloat(document.getElementById("sciPreInput").value);
+        sciPreChartMarks = sciPreChartMarks * 2;
+        sciMidChartMarks = parseFloat(document.getElementById("sciMidInput").value);
+
+        sciPostChartMarks = parseFloat(document.getElementById("sciPostInput").value);
+
+        sciFinChartMarks = parseFloat(document.getElementById("sciFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', sciPreChartMarks],
+                ['Mid Term', sciMidChartMarks],
+                ['Post Mid Term', sciPostChartMarks],
+                ['Final', sciFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'Science Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function sstYearChart() {
+        sstPreChartMarks = parseFloat(document.getElementById("sstPreInput").value);
+        sstPreChartMarks = sstPreChartMarks * 2;
+        sstMidChartMarks = parseFloat(document.getElementById("sstMidInput").value);
+
+        sstPostChartMarks = parseFloat(document.getElementById("sstPostInput").value);
+
+        sstFinChartMarks = parseFloat(document.getElementById("sstFinInput").value);
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', sstPreChartMarks],
+                ['Mid Term', sstMidChartMarks],
+                ['Post Mid Term', sstPostChartMarks],
+                ['Final', sstFinChartMarks]
+            ]);
+
+            var options = {
+                title: 'Social Science Year Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 65
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    function examYearChart() {
+        var eng1 = parseFloat(document.getElementById("engPreInput").value);
+        var hin1 = parseFloat(document.getElementById("hinPreInput").value);
+        var san1 = parseFloat(document.getElementById("sanPreInput").value);
+        var maths1 = parseFloat(document.getElementById("mathsPreInput").value);
+        var sci1 = parseFloat(document.getElementById("sciPreInput").value);
+        var sst1 = parseFloat(document.getElementById("sstPreInput").value);
+
+        var preTotalRawChartMarks = eng1 + hin1 + san1 + maths1 + sci1 + sst1; //  multiplied by two, cause it was out of 180
+
+        preTotalChartMarks = (preTotalRawChartMarks * 2);
+
+        var eng2 = parseFloat(document.getElementById("engMidInput").value);
+        var hin2 = parseFloat(document.getElementById("hinMidInput").value);
+        var san2 = parseFloat(document.getElementById("sanMidInput").value);
+        var maths2 = parseFloat(document.getElementById("mathsMidInput").value);
+        var sci2 = parseFloat(document.getElementById("sciMidInput").value);
+        var sst2 = parseFloat(document.getElementById("sstMidInput").value);
+
+        var midTotalChartMarks = eng2 + hin2 + san2 + maths2 + sci2 + sst2;
+
+        var eng3 = parseFloat(document.getElementById("engPostInput").value);
+        var hin3 = parseFloat(document.getElementById("hinPostInput").value);
+        var san3 = parseFloat(document.getElementById("sanPostInput").value);
+        var maths3 = parseFloat(document.getElementById("mathsPostInput").value);
+        var sci3 = parseFloat(document.getElementById("sciPostInput").value);
+        var sst3 = parseFloat(document.getElementById("sstPostInput").value);
+
+        var postTotalChartMarks = eng3 + hin3 + san3 + maths3 + sci3 + sst3;
+
+        var eng4 = parseFloat(document.getElementById("engFinInput").value);
+        var hin4 = parseFloat(document.getElementById("hinFinInput").value);
+        var san4 = parseFloat(document.getElementById("sanFinInput").value);
+        var maths4 = parseFloat(document.getElementById("mathsFinInput").value);
+        var sci4 = parseFloat(document.getElementById("sciFinInput").value);
+        var sst4 = parseFloat(document.getElementById("sstFinInput").value);
+
+        var finTotalChartMarks = eng4 + hin4 + san4 + maths4 + sci4 + sst4;
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Subject', 'Marks'],
+                ['Pre Mid Term', preTotalChartMarks],
+                ['Mid Term', midTotalChartMarks],
+                ['Post Mid Term', postTotalChartMarks],
+                ['Final', finTotalChartMarks]
+            ]);
+
+            var options = {
+                title: 'Total Exam Wise Analysis:',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    minValue: 0,
+                    maxValue: 360
+                }
+
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    }
+
+    /////////////////////////////////// TABS JAVASCRIPT ///////////////////////////////////////////
+
+    function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+    }
+    document.getElementById("defaultOpen").click();
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+
+</html>

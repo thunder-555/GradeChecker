@@ -1,0 +1,144 @@
+    /* Reset default styles for input and button elements */
+    input,
+    button {
+        padding: 0;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-family: 'Cascadia Code';
+    }
+
+    /* Set a common height for both input and button */
+    input,
+    button {
+        height: 40px;
+        /* margin: 5px; */
+        /* Add margin on all sides */
+    }
+
+    /* Styling for the input element */
+    input {
+        padding: 0 10px;
+        border: 1px solid #4a4d4f;
+        border-radius: 5px;
+        width: 200px;
+        /* Set a fixed width or adjust as needed */
+    }
+
+    /* Styling for the button element */
+    button {
+        background-color: #4a4d4f;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+        width: 120px;
+        /* Set a fixed width or adjust as needed */
+    }
+
+    /* Add hover effect to the button */
+    button:hover {
+        background-color: #717476;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: #4a4d4f;
+        margin: 20px 0;
+        /* Add margin on top and bottom to create spacing */
+    }
+
+    body {
+        font-family: 'Cascadia Code';
+    }
+
+    body {
+        margin: 0;
+        padding: 30px;
+        color: #4a4d4f;
+        background-image: url('glass-background.jpg');
+        background-attachment: fixed;
+    }
+
+    .glass-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    /* Styling for the content inside the glass container */
+    .glass-content {
+        position: relative;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        /* Adjust opacity for desired effect */
+        backdrop-filter: blur(10px);
+        /* The blur effect for modern browsers */
+        -webkit-backdrop-filter: blur(10px);
+        /* Support for Chrome 76+, Safari 13+ */
+    }
+
+    /* Make the content responsive */
+    @media (max-width: 768px) {
+        .glass-content {
+            padding: 20px;
+        }
+    }
+
+    p {
+        font-size: 17px;
+        color: #4a4d4f;
+        /* Add margin on top and bottom to create spacing */
+    }
+
+    h1 {
+        font-family: 'Cascadia Code';
+    }
+
+    /* Dropdown Menu Styles */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropbtn {
+        background-color: #4a4d4f;
+        color: white;
+        padding: 8px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    p {
+        font-size: larger;
+        color: black;
+    }
+
+    

@@ -1,0 +1,22 @@
+General IDs:
+
+engGen
+sciGen
+sanGen
+sstGen
+mathGen
+aiGen
+
+Main IDs:
+
+engMain
+phyMain
+chemMain
+bioMain
+sanMain
+hisMain
+demMain
+geoMain
+ecoMain
+mathMain
+aiMain
