@@ -78,7 +78,12 @@ function loadAi() {
 function get(x) {
     return parseFloat(document.getElementById(x).value);
 }
-function t1() {
+function loadName() {
+    nameOfUser = document.getElementById('name').value;
+    document.getElementById('sayhel').innerHTML = "Hello, " + nameOfUser + "! Welcome To my Website! Go ahead calculate your marks and percentage! "
+}
+
+function tada(){
     let engGen = get('engGen');
     let sciGen = get('sciGen');
     let sanGen = get('sanGen');
@@ -89,11 +94,6 @@ function t1() {
     let totalGenMarksValue = engGen + sciGen + sanGen + sstGen + mathGen + aiGen;
 
     document.getElementById('totalGenMarks').innerHTML = "Total General Marks: " + totalGenMarksValue;
-}
-
-
-
-function t2() {
     let engMain = get('engMain');
     let phyMain = get('phyMain');
     let chemMain = get('chemMain');
@@ -108,111 +108,19 @@ function t2() {
 
     let totalMainMarksValue = engMain + phyMain + chemMain + bioMain + sanMain + hisMain + demMain + geoMain + ecoMain + mathMain + aiMain;
 
-    return document.getElementById('totalMainMarks').innerHTML = "Total Main Marks: " + totalMainMarksValue;
-}
-
-
-function t3() {
-    let engGen = get('engGen');
-    let sciGen = get('sciGen');
-    let sanGen = get('sanGen');
-    let sstGen = get('sstGen');
-    let mathGen = get('mathGen');
-    let aiGen = get('aiGen');
-
-    let engMain = get('engMain');
-    let phyMain = get('phyMain');
-    let chemMain = get('chemMain');
-    let bioMain = get('bioMain');
-    let sanMain = get('sanMain');
-    let hisMain = get('hisMain');
-    let demMain = get('demMain');
-    let geoMain = get('geoMain');
-    let ecoMain = get('ecoMain');
-    let mathMain = get('mathMain');
-    let aiMain = get('aiMain');
-
+    document.getElementById('totalMainMarks').innerHTML = "Total Main Marks: " + totalMainMarksValue;
+    
     let totalCombinedMarksValue = engGen + sciGen + sanGen + sstGen + mathGen + aiGen + engMain + phyMain + chemMain + bioMain + sanMain + hisMain + demMain + geoMain + ecoMain + mathMain + aiMain;
 
-    return document.getElementById('totalCombinedMarks').innerHTML = "Total Combined Marks: " + totalCombinedMarksValue;
-}
-
-
-function t4() {
-    let engGen = get('engGen');
-    let sciGen = get('sciGen');
-    let sanGen = get('sanGen');
-    let sstGen = get('sstGen');
-    let mathGen = get('mathGen');
-    let aiGen = get('aiGen');
-
-    let totalGenMarksValue = engGen + sciGen + sanGen + sstGen + mathGen + aiGen;
+    document.getElementById('totalCombinedMarks').innerHTML = "Total Combined Marks: " + totalCombinedMarksValue;
 
     let totalGenPercentageValue = (totalGenMarksValue / 120) * 100;
 
-    return document.getElementById('totalGenPercentage').innerHTML = "Total General Percentage: " + totalGenPercentageValue + "%";
-}
-
-function t5() {
-    let engMain = get('engMain');
-    let phyMain = get('phyMain');
-    let chemMain = get('chemMain');
-    let bioMain = get('bioMain');
-    let sanMain = get('sanMain');
-    let hisMain = get('hisMain');
-    let demMain = get('demMain');
-    let geoMain = get('geoMain');
-    let ecoMain = get('ecoMain');
-    let mathMain = get('mathMain');
-    let aiMain = get('aiMain');
-
-    let totalMainMarksValue = engMain + phyMain + chemMain + bioMain + sanMain + hisMain + demMain + geoMain + ecoMain + mathMain + aiMain;
-
+    document.getElementById('totalGenPercentage').innerHTML = "Total General Percentage: " + totalGenPercentageValue + "%";
     let totalMainPercentageValue = percent(totalMainMarksValue, 300);
 
-    return document.getElementById('totalMainPercentage').innerHTML = "Total Main Percentage: " + totalMainPercentageValue + "%";
-}
-
-
-function t6() {
-    let engGen = get('engGen');
-    let sciGen = get('sciGen');
-    let sanGen = get('sanGen');
-    let sstGen = get('sstGen');
-    let mathGen = get('mathGen');
-    let aiGen = get('aiGen');
-
-    let engMain = get('engMain');
-    let phyMain = get('phyMain');
-    let chemMain = get('chemMain');
-    let bioMain = get('bioMain');
-    let sanMain = get('sanMain');
-    let hisMain = get('hisMain');
-    let demMain = get('demMain');
-    let geoMain = get('geoMain');
-    let ecoMain = get('ecoMain');
-    let mathMain = get('mathMain');
-    let aiMain = get('aiMain');
-
-    let totalCombinedMarksValue = engGen + sciGen + sanGen + sstGen + mathGen + aiGen + engMain + phyMain + chemMain + bioMain + sanMain + hisMain + demMain + geoMain + ecoMain + mathMain + aiMain;
-
+    document.getElementById('totalMainPercentage').innerHTML = "Total Main Percentage: " + totalMainPercentageValue + "%";
     let totalCombinedPercentageValue = percent(totalCombinedMarksValue, 420);
 
-    return document.getElementById('totalCombinedPercentage').innerHTML = "<hr>Total Percentage: <br>" + totalCombinedPercentageValue + "%";
-}
-
-
-function loadName() {
-    nameOfUser = document.getElementById('name').value;
-    document.getElementById('sayhel').innerHTML = "Hello, " + nameOfUser + "! Welcome To my Website! Go ahead calculate your marks and percentage! "
-}
-
-function tada(){
-    t1()
-    t2()
-    t3()
-
-    t4()
-    t5()
-    t6()
+    document.getElementById('totalCombinedPercentage').innerHTML = "<hr>Total Percentage: <br>" + totalCombinedPercentageValue + "%";
 }
