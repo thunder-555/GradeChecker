@@ -2,7 +2,7 @@ function calcP(inputIdGen, inputIdMain, outputId) {
     let genMarks = parseFloat(document.getElementById(inputIdGen).value);
     let percentageGen = (genMarks / 20) * 100;
     let mainMarks = parseFloat(document.getElementById(inputIdMain).value);
-    let percentageMain = (mainMarks / 30) * 100;
+    let percentageMain = (mainMarks / 60) * 100;
     return document.getElementById(outputId).innerHTML = "Main Percentage: " + percentageMain.toFixed(2) + "%<br>" + "General Percentage: " + percentageGen.toFixed(2) + "%<br>";
 }
 
@@ -13,13 +13,13 @@ function sciCalc(inputPhy, inputChem, inputBio, inputGen, outputIdMain) {
     let gen = parseFloat(document.getElementById(inputGen).value);
 
     let totalMainMarks = phy + chem + bio;
-    let percentageMain = (totalMainMarks / 30) * 100;
+    let percentageMain = (totalMainMarks / 60) * 100;
     let percentageGen = (gen / 20) * 100;
 
     return document.getElementById(outputIdMain).innerHTML =
-        "Physics Percentage: " + ((phy / 10) * 100) + "%<br><br>" +
-        "Chemistry Percentage: " + ((chem / 10) * 100) + "%<br><br>" +
-        "Biology Percentage: " + ((bio / 10) * 100) + "%<br><br>" +
+        "Physics Percentage: " + ((phy / 20) * 100) + "%<br><br>" +
+        "Chemistry Percentage: " + ((chem / 20) * 100) + "%<br><br>" +
+        "Biology Percentage: " + ((bio / 20) * 100) + "%<br><br>" +
         "General Percentage: " + (percentageGen) + "%<br><br>";
 }
 
@@ -34,11 +34,11 @@ function sstCalc() {
     let gen = parseFloat(document.getElementById('sstGen').value);
     
     let totalMainMarks = his + dem + geo + eco;
-    let hisPercent = percent(his, 8);
-    let demPercent = percent(dem, 7);
-    let geoPercent = percent(geo, 8);
-    let ecoPercent = percent(eco, 7);
-    let totalMainPercent = percent(totalMainMarks, 30);
+    let hisPercent = percent(his, 15);
+    let demPercent = percent(dem, 15);
+    let geoPercent = percent(geo, 15);
+    let ecoPercent = percent(eco, 15);
+    let totalMainPercent = percent(totalMainMarks, 60);
     let totalGenPercent = percent(gen, 20);
 
     return document.getElementById('sstOutPut').innerHTML = "History Percentage: " + hisPercent.toFixed(2) + "%<br><br>" + "DemoPol Percentage: " + demPercent.toFixed(2) + "%<br><br>" + "Geography Percentage: " + geoPercent.toFixed(2) + "%<br><br>" + "Economics Percentage: " + ecoPercent.toFixed(2) + "%<br><br>" + "Total Main Percent: " + totalMainPercent.toFixed(2) + "%<br><br>" + "Total General Percentage: " + totalGenPercent.toFixed(2) + "%<br>";
@@ -117,10 +117,10 @@ function tada(){
     let totalGenPercentageValue = (totalGenMarksValue / 120) * 100;
 
     document.getElementById('totalGenPercentage').innerHTML = "Total General Percentage: " + totalGenPercentageValue + "%";
-    let totalMainPercentageValue = percent(totalMainMarksValue, 300);
+    let totalMainPercentageValue = percent(totalMainMarksValue, 360);
 
     document.getElementById('totalMainPercentage').innerHTML = "Total Main Percentage: " + totalMainPercentageValue + "%";
-    let totalCombinedPercentageValue = percent(totalCombinedMarksValue, 420);
+    let totalCombinedPercentageValue = percent(totalCombinedMarksValue, 480);
 
     document.getElementById('totalCombinedPercentage').innerHTML = "<hr>Total Percentage: <br>" + totalCombinedPercentageValue + "%";
 }
