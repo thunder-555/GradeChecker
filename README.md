@@ -15,6 +15,6 @@ To use GradeChecker, follow these steps:
 
 GradeChecker is compatible with all modern web browsers, including Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge.
 
-We hope that this application helps you keep track of your grades and achieve your academic goals. If you have any feedback or suggestions for improvement, please feel free to contact us.
+I hope that this application helps you keep track of your grades and achieve your academic goals. If you have any feedback or suggestions for improvement, please feel free to contact me.
 
 Thank you for using GradeChecker! 
